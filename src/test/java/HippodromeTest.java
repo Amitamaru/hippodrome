@@ -11,6 +11,7 @@ import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
 class HippodromeTest {
+
     @Test
     void checkNullParameter() {
         assertThrows(IllegalArgumentException.class, ()-> new Hippodrome(null));
@@ -50,8 +51,6 @@ class HippodromeTest {
 
         assertEquals(horsesList, new Hippodrome(horsesList).getHorses());
     }
-
-
 
     @Test
     void moveTest() {
