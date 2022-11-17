@@ -4,13 +4,13 @@
         <Property name="baseDir">logs</Property>
     </Properties>
     <Appenders>
-        <RollingFile name="RollingFile" fileName="${baseDir}/Hippodrome.log"
-                     filePattern="${baseDir}/Hippodrome.%d{yyyy-MM-dd}.log">
+        <RollingFile name="RollingFile" fileName="${baseDir}/hippodrome.log"
+                     filePattern="${baseDir}/hippodrome.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="%d %p %-c: %m%n" />
             <TimeBasedTriggeringPolicy />
             <DefaultRolloverStrategy>
                 <Delete basePath="${baseDir}" maxDepth="2">
-                    <IfFileName glob="*/Hippodrome-*.log" />
+                    <IfFileName glob="*/hippodrome-*.log" />
                     <IfLastModified age="7d" />
                 </Delete>
             </DefaultRolloverStrategy>
