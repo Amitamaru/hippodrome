@@ -5,9 +5,13 @@
     </Properties>
     <Appenders>
         <RollingFile name="RollingFile" fileName="${baseDir}/Hippodrome.log"
-                     filePattern="${baseDir}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}.log.gz">
+                     filePattern="${baseDir}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="%d %p %c: %m%n" />
-            <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
             <DefaultRolloverStrategy>
                 <Delete basePath="${baseDir}">
                     <IfFileName glob="*/Hippodrome-*.log" />
